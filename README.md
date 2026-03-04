@@ -16,9 +16,32 @@ This work accompanies the following analysis results collections available in ID
 
 All notebooks are designed to run on **Google Colab**. To execute them, you will need:
 
-- A **Google Cloud Platform (GCP) project** with BigQuery API enabled (for querying IDC metadata)
-- A Google account for Colab authentication
+- A **Google account** for Colab authentication
 - No local software installation is required — all dependencies are installed within the notebooks
+
+### BigQuery requirement
+
+Most notebooks query IDC metadata using [Google BigQuery](https://cloud.google.com/bigquery). For these notebooks you will also need:
+
+- A **Google Cloud Platform (GCP) project** with the BigQuery API enabled
+- The project must have billing enabled (BigQuery queries against public IDC datasets are free within the [free tier](https://cloud.google.com/bigquery/pricing#free-tier), but a billing account is required)
+
+The following notebooks require BigQuery:
+
+| Notebook | Why BigQuery is needed |
+|----------|------------------------|
+| `UsageNotes/parseSEGandSR.ipynb` | Queries `dicom_all` and `quantitative_measurements` tables |
+| `TechnicalValidation/validateNLSTSegVolume.ipynb` | Queries `quantitative_measurements` for radiomics features |
+| `TechnicalValidation/technicalCompliance.ipynb` | Queries `dicom_all` for series metadata |
+| `TechnicalValidation/consistencyChecks/NLSTSegvsNLSTSybil.ipynb` | Joins NLSTSeg and NLST-Sybil via nested DICOM reference fields in `dicom_all` |
+
+The following notebook does **not** require BigQuery — it uses [`idc-index`](https://github.com/ImagingDataCommons/idc-index) instead:
+
+| Notebook | How it accesses IDC |
+|----------|---------------------|
+| `TechnicalValidation/consistencyChecks/NLSTSegVsTS.ipynb` | Uses `idc-index` `seg_index` table (no GCP account needed) |
+
+The DataRecords notebooks (`createNLSTSeg.ipynb`, `createNLSTSybil.ipynb`) do not query IDC metadata at runtime — they generate the DICOM files from source data.
 
 ## Repository Structure
 
