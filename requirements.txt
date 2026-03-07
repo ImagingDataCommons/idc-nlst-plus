@@ -1,0 +1,38 @@
+# Core dependencies for NLSTNatureSciData notebooks
+# These notebooks are designed to run on Google Colab;
+# this file documents the package versions used at the time of publication.
+#
+# To install all dependencies locally:
+#   pip install -r requirements.txt
+#
+# Note: notebooks also use google.colab (auth, files) which is only available
+# on Google Colab and cannot be installed locally.
+
+# IDC data access
+idc-index>=0.11.1
+
+# DICOM handling
+pydicom>=3.0.1
+highdicom>=0.27.0
+SimpleITK>=2.5.3
+
+# NIfTI / image file handling
+nibabel
+
+# Pyradiomics (installed from GitHub for latest features)
+# pip install --no-cache-dir git+https://github.com/AIM-Harvard/pyradiomics.git
+pyradiomics>=3.1.0
+
+# Data download
+zenodo-get>=2.0.0
+
+# Google Cloud / BigQuery (required for notebooks that query IDC via BigQuery)
+# See README for which notebooks require a GCP project
+google-cloud-bigquery
+
+# Standard scientific Python (typically pre-installed on Colab)
+numpy
+pandas
+matplotlib
+seaborn
+tqdm
