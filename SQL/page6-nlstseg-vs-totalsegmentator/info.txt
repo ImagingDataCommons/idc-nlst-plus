@@ -1,0 +1,3 @@
+Refer to this notebook, for how to calculate the table nlstseg_ts_lesion_matching2:
+
+https://github.com/ImagingDataCommons/NLSTNatureSciData/blob/main/TechnicalValidation/consistencyChecks/NLSTSegVsTS.ipynb
