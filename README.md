@@ -45,24 +45,45 @@ The DataRecords notebooks (`createNLSTSeg.ipynb`, `createNLSTSybil.ipynb`) do no
 
 ## Repository Structure
 
-<pre>
+```diff
 NLSTNatureSciData/
-├── DataRecords/
-│   ├── createNLSTSeg.ipynb   -- code to generate the NLSTSeg SEG and SR DICOM files
-│   └── createNLSTSybil.ipynb -- code to generate the NLSTSybil SR DICOM files
-├── TechnicalValidation/
-│   ├── consistencyChecks/
-│   │   ├── NLSTSegVsTS.ipynb        -- code to compare NLSTSeg lung lobe locations of the lesions with TotalSegmentator lung lobe locations
-│   │   └── NLSTSegvsNLSTSybil.ipynb -- code to compare NLSTSeg lesion segmentations with the NLST-Sybil bounding boxes
-│   ├── technicalCompliance.ipynb    -- code to ensure the files are true DICOM files
-│   └── validateNLSTSegVolume.ipynb  -- code to compare the volume of the lesions in NLSTSeg using pyradiomics vs what the authors provided
-├── UsageNotes/
-│   └── parseSEGandSR.ipynb -- demonstration of how to download, read, and visualize the SEG and SR DICOM files
-├── NLSTSeg_codes.csv       -- SNOMED CT codes for lesion types (Tumor, Nodule)
-├── NLSTSeg_lung_codes.csv  -- SNOMED CT codes for anatomical lung regions
-├── LICENSE
-└── README.md
-</pre>
++ ├── DataRecords/
++ │   ├── createNLSTSeg.ipynb   -- code to generate the NLSTSeg SEG and SR DICOM files
++ │   └── createNLSTSybil.ipynb -- code to generate the NLSTSybil SR DICOM files
+  ├── SQL/ -- these are the queries that power the Looker Studio dashboards 
+  │   ├── page1-totalsegmentator/
+  │   │   └── quant_seg_viewer_view.sql -- this is the main query that powers the dashboard 
+  │   ├── page2-nlst-sybil/
+  │   │   ├── nlst_sybil_measurement_groups.sql -- first extract Measurement Groups from the SRs 
+  │   │   ├── nlst_sybil_bbox_measurements.sql -- then flatten to make more readable 
+  │   │   └── nlst_sybil_bbox_measurements_with_urls_and_counts_view.sql -- use the above and add urls, this is the main query that powers the dashboard
+  │   ├── page3-nlst-sybil-with-idc-metadata/
+  │   │   └── nlst_sybil_bbox_measurements_with_idc_data.sql -- merge the nlst_sybil_bbox_measurements (above) with IDC clinical metadata, this powers the dashboard  
+  │   ├── page4-nlstseg-explore-segmentations/
+  │   │   └── nlstseg_segmentations.sql -- extract the metadata from segmentations, this powers the dashboard 
+  │   ├── page5-nlstseg-features/
+  │   │   ├── nlst_quantitative_measurements.sql -- extract the features from the SRs 
+  │   │   └── nlstseg_quantitative_measurements_with_minmax_volume.sql -- use the above to include the min and max volume of lesions for a study, this powers the dashboard 
+  │   ├── page6-nlstseg-with-idc-metadata/
+  │   │   └── nlstseg_segmentations_and_meas_with_idc_data.sql -- merge the nlstseg_segmentations (above) with IDC clinical metadata, this powers the dashboard 
+  │   ├── page7-nlstseg-vs-totalsegmentator/
+  │   │   ├── info.txt -- describes how the original nlstseg_ts_lesion_matching2 table is created from a notebook 
+  │   │   └── nlstseg_ts_lesion_matching_with_volume.sql -- this powers the dashboard 
+  │   ├── page8-nlstseg-vs-nlst-sybil/
+  │   │   └── info.txt -- describes how the original nlst_sybil_and_nlstseg_overlap_per_series table is created from a notebook 
++ ├── TechnicalValidation/
++ │   ├── consistencyChecks/
++ │   │   ├── NLSTSegVsTS.ipynb        -- code to compare NLSTSeg lung lobe locations of the lesions with TotalSegmentator lung lobe locations
++ │   │   └── NLSTSegvsNLSTSybil.ipynb -- code to compare NLSTSeg lesion segmentations with the NLST-Sybil bounding boxes
++ │   ├── technicalCompliance.ipynb    -- code to ensure the files are true DICOM files
++ │   └── validateNLSTSegVolume.ipynb  -- code to compare the volume of the lesions in NLSTSeg using pyradiomics vs what the authors provided
++ ├── UsageNotes/
++ │   └── parseSEGandSR.ipynb -- demonstration of how to download, read, and visualize the SEG and SR DICOM files
++ ├── NLSTSeg_codes.csv       -- SNOMED CT codes for lesion types (Tumor, Nodule)
++ ├── NLSTSeg_lung_codes.csv  -- SNOMED CT codes for anatomical lung regions
++ ├── LICENSE
++ └── README.md
+```
 
 ## Suggested Reading Order
 
@@ -77,5 +98,7 @@ This project is licensed under the MIT License — see [LICENSE](LICENSE) for de
 ## Author
 
 Deepa Krishnaswamy
+
 Brigham and Women's Hospital
+
 December 2025

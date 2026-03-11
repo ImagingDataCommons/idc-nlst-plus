@@ -1,3 +1,3 @@
 Refer to this notebook, for how to calculate the table nlst_sybil_and_nlstseg_overlap_per_series:
 
-https://github.com/ImagingDataCommons/NLSTNatureSciData/blob/main/TechnicalValidation/consistencyChecks/NLSTSegvsNLSTSybil.ipynb
+https://github.com/ImagingDataCommons/idc-nlst-plus/blob/main/TechnicalValidation/consistencyChecks/NLSTSegvsNLSTSybil.ipynb
