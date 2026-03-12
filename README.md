@@ -66,11 +66,11 @@ NLSTNatureSciData/
   │   │   └── nlstseg_quantitative_measurements_with_minmax_volume.sql -- use the above to include the min and max volume of lesions for a study, this powers the dashboard 
   │   ├── page6-nlstseg-with-idc-metadata/
   │   │   └── nlstseg_segmentations_and_meas_with_idc_data.sql -- merge the nlstseg_segmentations (above) with IDC clinical metadata, this powers the dashboard 
-  │   ├── page7-nlstseg-vs-totalsegmentator/
+  │   ├── page7-nlstseg-vs-nlst-sybil/
+  │   │   └── info.txt -- describes how the original nlst_sybil_and_nlstseg_overlap_per_series table is created from a notebook 
+  │   ├── page8-nlstseg-vs-totalsegmentator/
   │   │   ├── info.txt -- describes how the original nlstseg_ts_lesion_matching2 table is created from a notebook 
   │   │   └── nlstseg_ts_lesion_matching_with_volume.sql -- this powers the dashboard 
-  │   ├── page8-nlstseg-vs-nlst-sybil/
-  │   │   └── info.txt -- describes how the original nlst_sybil_and_nlstseg_overlap_per_series table is created from a notebook 
 + ├── TechnicalValidation/
 + │   ├── consistencyChecks/
 + │   │   ├── NLSTSegVsTS.ipynb        -- code to compare NLSTSeg lung lobe locations of the lesions with TotalSegmentator lung lobe locations
