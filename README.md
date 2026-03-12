@@ -1,4 +1,4 @@
-# NLSTNatureSciData
+# IDC NLST Plus 
 
 This repository holds the necessary scripts and demonstrations for our Nature Scientific Data manuscript on enhancing the [National Lung Screening Trial (NLST)](https://www.cancer.gov/types/lung/research/nlst) collection in the [NCI Imaging Data Commons (IDC)](https://portal.imaging.datacommons.cancer.gov/) with DICOM Segmentation (SEG) and Structured Report (SR) annotations.
 
@@ -46,7 +46,7 @@ The DataRecords notebooks (`createNLSTSeg.ipynb`, `createNLSTSybil.ipynb`) do no
 ## Repository Structure
 
 ```diff
-NLSTNatureSciData/
+idc-nlst-plus/
 + ├── DataRecords/
 + │   ├── createNLSTSeg.ipynb   -- code to generate the NLSTSeg SEG and SR DICOM files
 + │   └── createNLSTSybil.ipynb -- code to generate the NLSTSybil SR DICOM files
