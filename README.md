@@ -1,6 +1,6 @@
 # IDC NLST Plus 
 
-This repository holds the necessary scripts and demonstrations for our Nature Scientific Data manuscript on enhancing the [National Lung Screening Trial (NLST)](https://www.cancer.gov/types/lung/research/nlst) collection in the [NCI Imaging Data Commons (IDC)](https://portal.imaging.datacommons.cancer.gov/) with DICOM Segmentation (SEG) and Structured Report (SR) annotations.
+This repository holds the necessary scripts and demonstrations for enhancing the [National Lung Screening Trial (NLST)](https://www.cancer.gov/types/lung/research/nlst) collection in the [NCI Imaging Data Commons (IDC)](https://portal.imaging.datacommons.cancer.gov/) with DICOM Segmentation (SEG) and Structured Report (SR) annotations.
 
 ## Analysis Results Collections
 
@@ -21,7 +21,7 @@ All notebooks are designed to run on **Google Colab**. To execute them, you will
 
 ### BigQuery requirement
 
-Most notebooks query IDC metadata using [Google BigQuery](https://cloud.google.com/bigquery). For these notebooks you will also need:
+Most notebooks query IDC metadata using [Google BigQuery](https://cloud.google.com/bigquery). For these notebooks, you will also need:
 
 - A **Google Cloud Platform (GCP) project** with the BigQuery API enabled
 - The project must have billing enabled (BigQuery queries against public IDC datasets are free within the [free tier](https://cloud.google.com/bigquery/pricing#free-tier), but a billing account is required)
