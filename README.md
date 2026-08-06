@@ -19,6 +19,8 @@ All notebooks are designed to run on **Google Colab**. To execute them, you will
 - A **Google account** for Colab authentication
 - No local software installation is required — all dependencies are installed within the notebooks
 
+For local runs, package versions are listed in [`requirements.txt`](requirements.txt).
+
 ### BigQuery requirement
 
 Most notebooks query IDC metadata using [Google BigQuery](https://cloud.google.com/bigquery). For these notebooks, you will also need:
@@ -41,6 +43,7 @@ The following notebooks do **not** require BigQuery:
 |----------|---------------------|
 | `TechnicalValidation/consistencyChecks/NLSTSegVsTS.ipynb` | Uses [`idc-index`](https://github.com/ImagingDataCommons/idc-index) `seg_index` table (no GCP account needed) |
 | `TechnicalValidation/consistencyChecks/NLSTSegVsTS_viz.ipynb` | Reads the precomputed `nlstseg_ts_lesion_matching_with_volume.csv` from this repository (no GCP account needed) |
+| `TechnicalValidation/consistencyChecks/NLSTSegVSNLSTSybil_viz.ipynb` | Reads the precomputed `nlst_sybil_and_nlstseg_overlap_per_series.csv` from this repository (no GCP account needed) |
 
 The DataRecords notebooks (`createNLSTSeg.ipynb`, `createNLSTSybil.ipynb`) do not query IDC metadata at runtime — they generate the DICOM files from source data.
 
@@ -74,16 +77,19 @@ idc-nlst-plus/
   │   │   └── nlstseg_ts_lesion_matching_with_volume.sql -- this powers the dashboard 
 + ├── TechnicalValidation/
 + │   ├── consistencyChecks/
-+ │   │   ├── NLSTSegVsTS.ipynb        -- code to compare NLSTSeg lung lobe locations of the lesions with TotalSegmentator lung lobe locations; writes nlstseg_ts_lesion_matching_with_volume.csv
++ │   │   ├── NLSTSegVsTS.ipynb        -- compare NLSTSeg lung lobe locations with TotalSegmentator; writes nlstseg_ts_lesion_matching_with_volume.csv
 + │   │   ├── NLSTSegVsTS_viz.ipynb    -- visualization of NLSTSeg vs TotalSegmentator lesion-lobe matching (reads the CSV above)
-+ │   │   ├── nlstseg_ts_lesion_matching_with_volume.csv -- precomputed NLSTSeg vs TotalSegmentator lesion matching results with volumes (output of NLSTSegVsTS.ipynb)
-+ │   │   └── NLSTSegvsNLSTSybil.ipynb -- code to compare NLSTSeg lesion segmentations with the NLST-Sybil bounding boxes
++ │   │   ├── nlstseg_ts_lesion_matching_with_volume.csv -- precomputed NLSTSeg vs TotalSegmentator lesion matching with volumes (output of NLSTSegVsTS.ipynb)
++ │   │   ├── NLSTSegvsNLSTSybil.ipynb -- compare NLSTSeg lesion segmentations with NLST-Sybil bounding boxes; writes nlst_sybil_and_nlstseg_overlap_per_series.csv
++ │   │   ├── NLSTSegVSNLSTSybil_viz.ipynb -- visualization of NLSTSeg vs NLST-Sybil overlap (reads the CSV above)
++ │   │   └── nlst_sybil_and_nlstseg_overlap_per_series.csv -- precomputed NLSTSeg vs NLST-Sybil per-series overlap metrics (output of NLSTSegvsNLSTSybil.ipynb)
 + │   ├── technicalCompliance.ipynb    -- code to ensure the files are true DICOM files
 + │   └── validateNLSTSegVolume.ipynb  -- code to compare the volume of the lesions in NLSTSeg using pyradiomics vs what the authors provided
 + ├── UsageNotes/
 + │   └── parseSEGandSR.ipynb -- demonstration of how to download, read, and visualize the SEG and SR DICOM files
 + ├── NLSTSeg_codes.csv       -- SNOMED CT codes for lesion types (Tumor, Nodule)
 + ├── NLSTSeg_lung_codes.csv  -- SNOMED CT codes for anatomical lung regions
++ ├── requirements.txt        -- Python package versions used by the notebooks
 + ├── LICENSE
 + └── README.md
 ```
