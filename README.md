@@ -35,11 +35,12 @@ The following notebooks require BigQuery:
 | `TechnicalValidation/technicalCompliance.ipynb` | Queries `dicom_all` for series metadata |
 | `TechnicalValidation/consistencyChecks/NLSTSegvsNLSTSybil.ipynb` | Joins NLSTSeg and NLST-Sybil via nested DICOM reference fields in `dicom_all` |
 
-The following notebook does **not** require BigQuery — it uses [`idc-index`](https://github.com/ImagingDataCommons/idc-index) instead:
+The following notebooks do **not** require BigQuery:
 
-| Notebook | How it accesses IDC |
+| Notebook | How it accesses data |
 |----------|---------------------|
-| `TechnicalValidation/consistencyChecks/NLSTSegVsTS.ipynb` | Uses `idc-index` `seg_index` table (no GCP account needed) |
+| `TechnicalValidation/consistencyChecks/NLSTSegVsTS.ipynb` | Uses [`idc-index`](https://github.com/ImagingDataCommons/idc-index) `seg_index` table (no GCP account needed) |
+| `TechnicalValidation/consistencyChecks/NLSTSegVsTS_viz.ipynb` | Reads the precomputed `nlstseg_ts_lesion_matching_with_volume.csv` from this repository (no GCP account needed) |
 
 The DataRecords notebooks (`createNLSTSeg.ipynb`, `createNLSTSybil.ipynb`) do not query IDC metadata at runtime — they generate the DICOM files from source data.
 
@@ -73,7 +74,9 @@ idc-nlst-plus/
   │   │   └── nlstseg_ts_lesion_matching_with_volume.sql -- this powers the dashboard 
 + ├── TechnicalValidation/
 + │   ├── consistencyChecks/
-+ │   │   ├── NLSTSegVsTS.ipynb        -- code to compare NLSTSeg lung lobe locations of the lesions with TotalSegmentator lung lobe locations
++ │   │   ├── NLSTSegVsTS.ipynb        -- code to compare NLSTSeg lung lobe locations of the lesions with TotalSegmentator lung lobe locations; writes nlstseg_ts_lesion_matching_with_volume.csv
++ │   │   ├── NLSTSegVsTS_viz.ipynb    -- visualization of NLSTSeg vs TotalSegmentator lesion-lobe matching (reads the CSV above)
++ │   │   ├── nlstseg_ts_lesion_matching_with_volume.csv -- precomputed NLSTSeg vs TotalSegmentator lesion matching results with volumes (output of NLSTSegVsTS.ipynb)
 + │   │   └── NLSTSegvsNLSTSybil.ipynb -- code to compare NLSTSeg lesion segmentations with the NLST-Sybil bounding boxes
 + │   ├── technicalCompliance.ipynb    -- code to ensure the files are true DICOM files
 + │   └── validateNLSTSegVolume.ipynb  -- code to compare the volume of the lesions in NLSTSeg using pyradiomics vs what the authors provided
@@ -101,4 +104,4 @@ Deepa Krishnaswamy
 
 Brigham and Women's Hospital
 
-December 2025
+August 2026
