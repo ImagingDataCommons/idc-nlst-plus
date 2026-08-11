@@ -80,8 +80,8 @@ idc-nlst-plus/
 + │   │   ├── NLSTSegVsTS.ipynb        -- compare NLSTSeg lung lobe locations with TotalSegmentator; writes nlstseg_ts_lesion_matching_with_volume.csv
 + │   │   ├── NLSTSegVsTS_viz.ipynb    -- visualization of NLSTSeg vs TotalSegmentator lesion-lobe matching (reads the CSV above)
 + │   │   ├── nlstseg_ts_lesion_matching_with_volume.csv -- precomputed NLSTSeg vs TotalSegmentator lesion matching with volumes (output of NLSTSegVsTS.ipynb)
-+ │   │   ├── NLSTSegvsNLSTSybil.ipynb -- compare NLSTSeg lesion segmentations with NLST-Sybil bounding boxes; writes nlst_sybil_and_nlstseg_overlap_per_series.csv
-+ │   │   ├── NLSTSegVSNLSTSybil_viz.ipynb -- visualization of NLSTSeg vs NLST-Sybil overlap (reads the CSV above)
++ │   │   ├── NLSTSegVsNLSTSybil.ipynb -- compare NLSTSeg lesion segmentations with NLST-Sybil bounding boxes; writes nlst_sybil_and_nlstseg_overlap_per_series.csv
++ │   │   ├── NLSTSegVsNLSTSybil_viz.ipynb -- visualization of NLSTSeg vs NLST-Sybil overlap (reads the CSV above)
 + │   │   └── nlst_sybil_and_nlstseg_overlap_per_series.csv -- precomputed NLSTSeg vs NLST-Sybil per-series overlap metrics (output of NLSTSegvsNLSTSybil.ipynb)
 + │   ├── technicalCompliance.ipynb    -- code to ensure the files are true DICOM files
 + │   └── validateNLSTSegVolume.ipynb  -- code to compare the volume of the lesions in NLSTSeg using pyradiomics vs what the authors provided
