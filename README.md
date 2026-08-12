@@ -51,9 +51,9 @@ The DataRecords notebooks (`createNLSTSeg.ipynb`, `createNLSTSybil.ipynb`) do no
 
 ```diff
 idc-nlst-plus/
-+ ├── DataRecords/
-+ │   ├── createNLSTSeg.ipynb   -- code to generate the NLSTSeg SEG and SR DICOM files
-+ │   └── createNLSTSybil.ipynb -- code to generate the NLSTSybil SR DICOM files
+  ├── DataRecords/
+  │   ├── createNLSTSeg.ipynb   -- code to generate the NLSTSeg SEG and SR DICOM files
+  │   └── createNLSTSybil.ipynb -- code to generate the NLSTSybil SR DICOM files
   ├── SQL/ -- these are the queries that power the Looker Studio dashboards 
   │   ├── page1-totalsegmentator/
   │   │   └── quant_seg_viewer_view.sql -- this is the main query that powers the dashboard 
@@ -75,23 +75,23 @@ idc-nlst-plus/
   │   ├── page8-nlstseg-vs-totalsegmentator/
   │   │   ├── info.txt -- describes how the original nlstseg_ts_lesion_matching2 table is created from a notebook 
   │   │   └── nlstseg_ts_lesion_matching_with_volume.sql -- this powers the dashboard 
-+ ├── TechnicalValidation/
-+ │   ├── consistencyChecks/
-+ │   │   ├── NLSTSegVsTS.ipynb        -- compare NLSTSeg lung lobe locations with TotalSegmentator; writes nlstseg_ts_lesion_matching_with_volume.csv
-+ │   │   ├── NLSTSegVsTS_viz.ipynb    -- visualization of NLSTSeg vs TotalSegmentator lesion-lobe matching (reads the CSV above)
-+ │   │   ├── nlstseg_ts_lesion_matching_with_volume.csv -- precomputed NLSTSeg vs TotalSegmentator lesion matching with volumes (output of NLSTSegVsTS.ipynb)
-+ │   │   ├── NLSTSegVsNLSTSybil.ipynb -- compare NLSTSeg lesion segmentations with NLST-Sybil bounding boxes; writes nlst_sybil_and_nlstseg_overlap_per_series.csv
-+ │   │   ├── NLSTSegVsNLSTSybil_viz.ipynb -- visualization of NLSTSeg vs NLST-Sybil overlap (reads the CSV above)
-+ │   │   └── nlst_sybil_and_nlstseg_overlap_per_series.csv -- precomputed NLSTSeg vs NLST-Sybil per-series overlap metrics (output of NLSTSegvsNLSTSybil.ipynb)
-+ │   ├── technicalCompliance.ipynb    -- code to ensure the files are true DICOM files
-+ │   └── validateNLSTSegVolume.ipynb  -- code to compare the volume of the lesions in NLSTSeg using pyradiomics vs what the authors provided
-+ ├── UsageNotes/
-+ │   └── parseSEGandSR.ipynb -- demonstration of how to download, read, and visualize the SEG and SR DICOM files
-+ ├── NLSTSeg_codes.csv       -- SNOMED CT codes for lesion types (Tumor, Nodule)
-+ ├── NLSTSeg_lung_codes.csv  -- SNOMED CT codes for anatomical lung regions
-+ ├── requirements.txt        -- Python package versions used by the notebooks
-+ ├── LICENSE
-+ └── README.md
+  ├── TechnicalValidation/
+  │   ├── consistencyChecks/
+  │   │   ├── NLSTSegVsTS.ipynb        -- compare NLSTSeg lung lobe locations with TotalSegmentator; writes nlstseg_ts_lesion_matching_with_volume.csv
+  │   │   ├── NLSTSegVsTS_viz.ipynb    -- visualization of NLSTSeg vs TotalSegmentator lesion-lobe matching (reads the CSV above)
+  │   │   ├── nlstseg_ts_lesion_matching_with_volume.csv -- precomputed NLSTSeg vs TotalSegmentator lesion matching with volumes (output of NLSTSegVsTS.ipynb)
+  │   │   ├── NLSTSegVsNLSTSybil.ipynb -- compare NLSTSeg lesion segmentations with NLST-Sybil bounding boxes; writes nlst_sybil_and_nlstseg_overlap_per_series.csv
+  │   │   ├── NLSTSegVsNLSTSybil_viz.ipynb -- visualization of NLSTSeg vs NLST-Sybil overlap (reads the CSV above)
+  │   │   └── nlst_sybil_and_nlstseg_overlap_per_series.csv -- precomputed NLSTSeg vs NLST-Sybil per-series overlap metrics (output of NLSTSegvsNLSTSybil.ipynb)
+  │   ├── technicalCompliance.ipynb    -- code to ensure the files are true DICOM files
+  │   └── validateNLSTSegVolume.ipynb  -- code to compare the volume of the lesions in NLSTSeg using pyradiomics vs what the authors provided
+  ├── UsageNotes/
+  │   └── parseSEGandSR.ipynb -- demonstration of how to download, read, and visualize the SEG and SR DICOM files
+  ├── NLSTSeg_codes.csv       -- SNOMED CT codes for lesion types (Tumor, Nodule)
+  ├── NLSTSeg_lung_codes.csv  -- SNOMED CT codes for anatomical lung regions
+  ├── requirements.txt        -- Python package versions used by the notebooks
+  ├── LICENSE
+  └── README.md
 ```
 
 ## Suggested Reading Order
